@@ -1,0 +1,38 @@
+{
+    "name": "alazjj/DemoSimpleBootstrapBundle",
+    "type": "symfony-bundle",
+    "description": "",
+    "keywords": ["bootstrap", "twitter", "SimpleBootstrapBundle", "demo"],
+    "homepage": "https://github.com/alazjj/DemoSimpleBootstrapBundle.git",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "aRn0D",
+            "homepage": "https://github.com/aRn0D"
+        },
+        {
+            "name": "Rioji",
+            "homepage": "https://github.com/Rioji"
+        },
+        {
+            "name": "Julien Janvier",
+            "homepage": "https://github.com/jjanvier"
+        }
+    ],
+
+    "minimum-stability": "dev",
+
+    "target-dir": "Alazjj/DemoSimpleBootstrapBundle",
+
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.2"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Alazjj\\DemoSimpleBootstrapBundle": ""
+        }
+    }
+}
