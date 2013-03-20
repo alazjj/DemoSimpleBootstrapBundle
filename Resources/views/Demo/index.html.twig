@@ -1,0 +1,80 @@
+{% extends "AlazjjSimpleBootstrapBundle::base.html.twig" %}
+{% block body %}
+    <h1>Modal tools</h1>
+
+    <h2>Simple Modal</h2>
+    <p>Open Modal and get the lorem ipsum text from the server</p>
+    <button data-modal="simple"
+            data-url="{{ path('alazjj_demo_staticcontent') }}">
+        open modal
+    </button>
+
+    <p>Open Modal and get the form from the server</p>
+    <button data-modal="simple"
+            data-url="{{ path('alazjj_demo_new') }}">
+        Open Modal
+    </button>
+
+    <p>Open Modal and get the lorem ipsum text from the server with a specidic modal markup, for example I remove the
+        fade css clas on the modal container</p>
+    <button data-modal="simple"
+            data-target="#otherMarkupContainer"
+            data-url="{{ path('alazjj_demo_staticcontent') }}">
+        Open Modal
+    </button>
+    <h2>Form</h2>
+    {% render controller("AlazjjDemoSimpleBootstrapBundle:Demo:newForm") %}
+
+
+    <div class="modal hide" id="otherMarkupContainer"></div>
+    <script>
+        /**
+         * Modal
+         */
+
+        $(function () {
+            $('[data-modal="simple"]').simpleModal();
+            $('[data-modal="confirm"]').confirmModal();
+            $('[data-modal="alert"]').alertModal();
+
+
+            /*
+             * Manage edition field one by one.
+             */
+            $('[data-form="row"]').formEditField();
+
+
+            /*
+             * Put a data-form-edit="form" on element to enable edition on all form fields
+             */
+            $('[data-form-edit="form"]').on("click", function () {
+                $('[data-form="row"]').formEditField({
+                    allFields: true
+                });
+            });
+        });
+    </script>
+
+
+{% endblock body %}
+{#
+data-target="#popupContainer"
+
+<button class="openConfirmPopup" data-target="#openConfirmContainer" data-ur
+        l="{{ path('_demo_contact') }}" data-message="confirm 1 ?">
+    button confir 1
+</button>
+
+<button class="openConfirmPopup" data-target="#openConfirmContainer" data-m
+        essage="confirm 2 ?">
+    button confir 2
+</button>
+
+<button class="openAlertPopup" data-modal="alert" data-target="#openAlertContainer" data-message="alert 1 ?">
+    button alert 2
+</button>
+
+<button class="openAlertPopup" data-modal="alert" data-target="#openAlertContainer" data-message="alert 2 ?">
+    button alert 2
+</button>
+#}

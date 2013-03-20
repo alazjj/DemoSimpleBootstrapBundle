@@ -1,5 +1,5 @@
 <?php
-namespace Alazjj\AlazjjDemoSimpleBootstrapBundle;
+namespace Alazjj\DemoSimpleBootstrapBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
