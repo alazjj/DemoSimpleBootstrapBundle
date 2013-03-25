@@ -2,6 +2,8 @@
 
 namespace Alazjj\DemoSimpleBootstrapBundle\Controller;
 
+use Alazjj\DemoSimpleBootstrapBundle\Entity\Form;
+use Alazjj\DemoSimpleBootstrapBundle\Form\FormModalType;
 use Alazjj\DemoSimpleBootstrapBundle\Form\FormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -32,12 +34,30 @@ class DemoController extends Controller
     }
 
     /**
-     * @Route("/new", name="alazjj_demo_new")
+     * @Route("/new/modal", name="alazjj_demo_new_modal")
+     * @Template()
+     */
+    public function newModalFormAction()
+    {
+        $form   = $this->createForm(new FormModalType());
+
+        return array(
+            'form'   => $form->createView(),
+        );
+    }
+
+    /**
+     * @Route("/new/", name="alazjj_demo_new")
      * @Template()
      */
     public function newFormAction()
     {
-        $form   = $this->createForm(new FormType());
+        $date = new \DateTime();
+
+        $entity = new Form();
+        $entity->setDate($date);
+
+        $form   = $this->createForm(new FormType(), $entity);
 
         return array(
             'form'   => $form->createView(),
