@@ -2,10 +2,13 @@
 
 namespace Alazjj\DemoSimpleBootstrapBundle\Entity;
 
- 
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Form
 {
+    /**
+     * @Assert\NotBlank()
+     */
     protected $text;
     protected $date;
     protected $choice;
@@ -13,6 +16,7 @@ class Form
     protected $file;
     protected $repeated;
     protected $collection;
+    protected $choiceMultiple;
 
     public function setCheckbox($checkbox)
     {
@@ -82,6 +86,16 @@ class Form
     public function getText()
     {
         return $this->text;
+    }
+
+    public function setChoiceMultiple($choiceMultiple)
+    {
+        $this->choiceMultiple = $choiceMultiple;
+    }
+
+    public function getchoiceMultiple()
+    {
+        return $this->choiceMultiple;
     }
 
     public static function getChoises()

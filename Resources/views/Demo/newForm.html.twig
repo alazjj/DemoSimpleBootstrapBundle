@@ -1,8 +1,9 @@
 <form data-submit="ajax"
       class="form-horizontal"
-      action="{{ path('_demo_contact') }}"
-      method="POST">
-
+      action="{{ path('alazjj_demo_create') }}"
+      method="POST"
+      id="{{ id }}">
+    <a href="#" data-form-edit="form">Edit all fields</a>
     {{ form_rest(form) }}
 
     <button type="submit"

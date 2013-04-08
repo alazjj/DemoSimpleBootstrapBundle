@@ -18,7 +18,8 @@ class FormType extends AbstractType
 
         $builder->add('date', 'date', array(
             'label' => 'Date field',
-            'input' => 'datetime',
+            'input' => 'timestamp',
+            'widget' => 'text',
             'format' => 'dd/MM/yy',
             'is_editable' => true,
             'is_active' => false
@@ -29,6 +30,15 @@ class FormType extends AbstractType
             'choices' => Form::getChoises(),
             'is_editable' => true,
             'is_active' => false
+        ));
+
+        $builder->add('choicemultiple', 'choice', array(
+            'label' => 'Choice multiple field',
+            'choices' => Form::getChoises(),
+            'is_editable' => true,
+            'is_active' => false,
+            'expanded' => true,
+            'multiple' => true
         ));
 
         $builder->add('checkbox', 'checkbox', array(

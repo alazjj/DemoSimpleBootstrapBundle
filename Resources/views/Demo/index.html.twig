@@ -37,11 +37,15 @@
         <h2>Form</h2>
 
         <div class="row">
-            <div class="span6">
-                {% render controller("AlazjjDemoSimpleBootstrapBundle:Demo:newForm") %}
+
+            <div class="span12">
+                {% include "AlazjjSimpleBootstrapBundle::flash.html.twig" %}
             </div>
             <div class="span6">
-                {% render controller("AlazjjDemoSimpleBootstrapBundle:Demo:newForm") %}
+                {% render controller("AlazjjDemoSimpleBootstrapBundle:Demo:newForm") with {'id' : 'toto'} %}
+            </div>
+            <div class="span6">
+                {% render controller("AlazjjDemoSimpleBootstrapBundle:Demo:newForm") with {'id' : 'tata'} %}
             </div>
         </div>
     </div>

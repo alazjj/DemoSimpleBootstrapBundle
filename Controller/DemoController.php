@@ -55,12 +55,18 @@ class DemoController extends Controller
         $date = new \DateTime();
 
         $entity = new Form();
-        $entity->setDate($date);
+        $entity->setDate($date->getTimestamp());
+        $entity->setText('input text value');
+        $entity->setChoice(1);
+        $entity->setCheckbox(true);
+        //$entity->setChoiceradio(array(3 => true,2 => true));
+        $entity->setChoiceMultiple(array(3,2));
 
-        $form   = $this->createForm(new FormType(), $entity);
+        $form = $this->createForm(new FormType(), $entity);
 
         return array(
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
+            'id' => uniqid()
         );
     }
 
@@ -70,21 +76,34 @@ class DemoController extends Controller
      */
     public function createFormAction()
     {
-//        $entity  = new Task();
-//        $form = $this->createForm(new TaskType(), $entity);
-//        $form->bind($request);
-//
-//        if ($form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($entity);
-//            $em->flush();
-//
-//            return $this->redirect($this->generateUrl('task_show', array('id' => $entity->getId())));
-//        }
-//
-//        return array(
-//            'entity' => $entity,
-//            'form'   => $form->createView(),
-//        );
+        $entity = new Form();
+        $message = 'Successed';
+        $status = 'success';
+
+        $form = $this->createForm(new FormType(), $entity);
+        $form->bind($this->getRequest());
+
+        if (!$form->isValid()) {
+            if ($this->getRequest()->isXmlHttpRequest()) {
+                return new \Symfony\Component\HttpFoundation\JsonResponse(array(
+                    'status' => 'error',
+                    'message' => 'Oops! An Error Occurred'
+                ));
+            }
+            $message = 'Oops! An Error Occurred';
+            $status = 'error';
+        }
+
+        if (!$this->getRequest()->isXmlHttpRequest()) {
+            $this->get('session')
+                ->getFlashBag()
+                ->add($status, $message);
+            return $this->redirect($this->generateUrl('alazjj_demo_index'));
+        } else {
+            return array(
+                'entity' => $entity,
+                'form'   => $form->createView(),
+            );
+        }
     }
 }
