@@ -110,6 +110,21 @@ Register the bundles in the kernel :
         );
     }
 ```
+Import or copy the assets configuration :
+```yaml
+    # app/config/config.yml
+    imports:
+        - { resource: @AlazjjSimpleBootstrapBundle/Resources/config/assetic.yml }
+```
+
+Use the AlazjjSimpleBootstrapBundle template to display forms and fields :
+```yaml
+    # app/config/config.yml
+    twig:
+        form:
+            resources:
+                - 'AlazjjSimpleBootstrapBundle:Form:fields.html.twig'
+```
 
 Import the routing configuration :
 ```yaml
