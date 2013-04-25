@@ -1,0 +1,3 @@
+_alazjj_demosimplebootstrap_bundle_modal:
+    resource: "@AlazjjDemoSimpleBootstrapBundle/Controller/ModalController.php"
+    type:     annotation
