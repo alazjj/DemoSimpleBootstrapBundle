@@ -93,18 +93,18 @@ class Form
         $this->choiceMultiple = $choiceMultiple;
     }
 
-    public function getchoiceMultiple()
+    public function getChoiceMultiple()
     {
         return $this->choiceMultiple;
     }
 
-    public static function getChoises()
+    public static function getChoices()
     {
         return array(
-            0 => 'Choise 1',
-            1 => 'Choise 2',
-            2 => 'Choise 3',
-            3 => 'Choise 4'
+            0 => 'Choice 1',
+            1 => 'Choice 2',
+            2 => 'Choice 3',
+            3 => 'Choice 4'
         );
     }
 }

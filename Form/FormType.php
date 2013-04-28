@@ -27,14 +27,14 @@ class FormType extends AbstractType
 
         $builder->add('choice', 'choice', array(
             'label' => 'Choice field',
-            'choices' => Form::getChoises(),
+            'choices' => Form::getChoices(),
             'is_editable' => true,
             'is_active' => false
         ));
 
         $builder->add('choicemultiple', 'choice', array(
             'label' => 'Choice multiple field',
-            'choices' => Form::getChoises(),
+            'choices' => Form::getChoices(),
             'is_editable' => true,
             'is_active' => false,
             'expanded' => true,
