@@ -8,9 +8,9 @@
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="{{ path('alazjj_index') }}">Home</a></li>
-                        <li><a href="{{ path('alazjj_modal_index') }}">Modals</a></li>
-                        <li><a href="{{ path('alazjj_form_index') }}">Forms</a></li>
+                        <li class="{{ (tab == 'home') ? "active" : ""  }}"><a href="{{ path('alazjj_index') }}">Home</a></li>
+                        <li class="{{ (tab == 'modal') ? "active" : ""  }}"><a href="{{ path('alazjj_modal_index') }}">Modals</a></li>
+                        <li class="{{ (tab == 'form') ? "active" : ""  }}"><a href="{{ path('alazjj_form_index') }}">Forms</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,6 +26,12 @@
             </ul>
         </div>
         <div class="span9">
+            {% include "AlazjjSimpleBootstrapBundle::flash.html.twig" %}
+            <div class="pull-right">
+                <a class="btn btn-small" href="https://github.com/alazjj/SimpleBootstrapBundle">
+                    <img width="20" height="20" alt="GitHub" src="{{ asset('/bundles/alazjjdemosimplebootstrap/images/blacktocat-32.png') }}">
+                </a>
+            </div>
             {% block content %}
             {% endblock content %}
         </div>
@@ -35,11 +41,6 @@
     {% block footer %}
     <hr>
     <footer>
-        <div class="pull-right">
-            <a class="btn btn-small" href="https://github.com/alazjj/SimpleBootstrapBundle">
-                <img width="20" height="20" alt="GitHub" src="/images/blacktocat-32.png">
-            </a>
-        </div>
         footer
     </footer>
     {% endblock footer %}

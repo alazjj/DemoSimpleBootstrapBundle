@@ -19,7 +19,7 @@ class ModalController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        return array('tab' => 'modal');
     }
 
     /**
@@ -28,7 +28,7 @@ class ModalController extends Controller
      */
     public function confirmationDeleteAction()
     {
-        return array();
+        return array('tab' => 'modal');
     }
 
     /**

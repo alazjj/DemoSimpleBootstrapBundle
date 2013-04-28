@@ -1,36 +1,28 @@
-{% extends "AlazjjSimpleBootstrapBundle::base.html.twig" %}
-{% block body %}
-    <div class="container">
-        <h1>Modal tools</h1>
+{% extends 'AlazjjDemoSimpleBootstrapBundle::base.html.twig' %}
 
-        <h2>Form</h2>
+{% block sidebar %}
+    <li class="nav-header">Forms with default options</li>
+    <li class="">
+        <a href="{{ path('alazjj_form_index') }}#form1">
+            <i class="icon-chevron-right"></i>
+            Form 1
+        </a>
+    </li>
+    <li class="">
+        <a href="{{ path('alazjj_form_index') }}#form2">
+            <i class="icon-chevron-right"></i>
+            Form 2
+        </a>
+    </li>
+{% endblock sidebar %}
 
-        <div class="row">
+{% block content %}
+    <h1>Form extensions</h1>
+    {% render controller("AlazjjDemoSimpleBootstrapBundle:Form:newForm") with {'id' : 'form1'} %}
+    {% render controller("AlazjjDemoSimpleBootstrapBundle:Form:newForm") with {'id' : 'form2'} %}
 
-            <div class="span12">
-                {% include "AlazjjSimpleBootstrapBundle::flash.html.twig" %}
-            </div>
-            <div class="span6">
-                {% render controller("AlazjjDemoSimpleBootstrapBundle:Form:newForm") with {'id' : 'toto'} %}
-            </div>
-            <div class="span6">
-                {% render controller("AlazjjDemoSimpleBootstrapBundle:Form:newForm") with {'id' : 'tata'} %}
-            </div>
-        </div>
-    </div>
-
-    <div class="modal hide" id="otherMarkupContainer"></div>
     <script>
-        /**
-         * Modal
-         */
-
         $(function () {
-            $('[data-modal="simple"]').simpleModal();
-            $('[data-modal="confirm"]').confirmModal();
-            $('[data-modal="alert"]').alertModal();
-
-
             /*
              * Manage edition field one by one.
              */
@@ -47,9 +39,9 @@
             });
         });
     </script>
+{% endblock content %}
 
 
-{% endblock body %}
 {#
 data-target="#popupContainer"
 
