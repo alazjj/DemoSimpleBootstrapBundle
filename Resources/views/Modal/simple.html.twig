@@ -1,0 +1,17 @@
+<div id="simple" class="section">
+    <h2>Simple modal with default options</h2>
+    <p>
+        Here is an example of simple modal with renders a form. The options are:
+        <ul>
+            <li><code>data-modal</code> is set to simple. This means the plugin simpleModal is bind automatically on this popin.</li>
+            <li><code>data-url</code> contains the URL of the <a href="{{ path('alazjj_modal_simple_form') }}">action that will render our form</a>.</li>
+            <li><code>data-target</code> is not set. The button will use the default container <code>simpleModalContainer</code> (which is rendered by default as we use the <code>AlazjjSimpleBootstrapBundle::base.html.twig</code> template).</li>
+        </ul>
+    </p>
+    <p>
+        <button data-modal="simple"
+                 data-url="{{ path('alazjj_modal_simple_form') }}">
+            Form
+        </button>
+    </p>
+</div>

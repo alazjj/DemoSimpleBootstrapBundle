@@ -1,1 +1,31 @@
-{% extends 'AlazjjDemoSimpleBootstrapBundle:Modal:base.html.twig' %}
+{% extends 'AlazjjDemoSimpleBootstrapBundle::base.html.twig' %}
+
+{% block sidebar %}
+    <li class="nav-header">Modals with default options</li>
+    <li class="">
+        <a href="{{ path('alazjj_modal_index') }}#alert">
+            <i class="icon-chevron-right"></i>
+            Alert modal
+        </a>
+    </li>
+    <li class="">
+        <a href="{{ path('alazjj_modal_index') }}#confirmation">
+            <i class="icon-chevron-right"></i>
+            Confirmation modal
+        </a>
+    </li>
+    <li class="">
+        <a href="{{ path('alazjj_modal_index') }}#simple">
+            <i class="icon-chevron-right"></i>
+            Simple modal
+        </a>
+    </li>
+    <li class="nav-header">Override default options</li>
+{% endblock sidebar %}
+
+{% block content %}
+    <h1>Modal extensions</h1>
+    {{ include('AlazjjDemoSimpleBootstrapBundle:Modal:alert.html.twig') }}
+    {{ include('AlazjjDemoSimpleBootstrapBundle:Modal:confirmation.html.twig') }}
+    {{ include('AlazjjDemoSimpleBootstrapBundle:Modal:simple.html.twig') }}
+{% endblock content %}

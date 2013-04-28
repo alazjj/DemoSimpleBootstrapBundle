@@ -1,0 +1,19 @@
+<div id="confirmation" class="section">
+    <h2>Confirmation modal with default options</h2>
+    <p>
+        Here is an example of confirmation modal with defaults options :
+        <ul>
+            <li><code>data-url</code> contains the URL where the user will be redirected after confirmation.</li>
+            <li><code>data-message</code> contains the message displayed in the popin.</li>
+            <li><code>data-modal</code> is set to confirm. This means the plugin confirmModal is bind automatically on this popin.</li>
+            <li><code>data-target</code> is not set. The button will use the default container <code>confirmModalContainer</code> (which is rendered by default as we use the <code>AlazjjSimpleBootstrapBundle::base.html.twig</code> template).</li>
+        </ul>
+    </p>
+    <p>
+        <button data-modal="confirm"
+                 data-message="Do you want to delete it ?"
+                 data-url="{{ path('alazjj_modal_confirm_delete') }}">
+            Delete
+        </button>
+    </p>
+</div>

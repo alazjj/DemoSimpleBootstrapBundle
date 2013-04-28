@@ -2,6 +2,7 @@
 
 namespace Alazjj\DemoSimpleBootstrapBundle\Controller;
 
+use Alazjj\DemoSimpleBootstrapBundle\Entity\Form;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -19,5 +20,34 @@ class ModalController extends Controller
     public function indexAction()
     {
         return array();
+    }
+
+    /**
+     * @Route("/confirmdelete", name="alazjj_modal_confirm_delete")
+     * @Template()
+     */
+    public function confirmationDeleteAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/simple", name="alazjj_modal_simple_form")
+     * @Template()
+     */
+    public function simpleFormAction()
+    {
+        $entity = new Form();
+        $entity->setText('This is a text');
+        $entity->setCheckbox(true);
+        $entity->setDate(new \DateTime());
+
+        $form = $this->createFormBuilder($entity)
+                    ->add('text', 'text')
+                    ->add('checkbox', 'checkbox')
+                    ->add('date', 'date')
+                    ->getForm();
+
+        return array('form' => $form->createView());
     }
 }
