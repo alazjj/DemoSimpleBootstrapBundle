@@ -1,3 +1,11 @@
+_alazjj_demosimplebootstrap_bundle_demo:
+    resource: "@AlazjjDemoSimpleBootstrapBundle/Controller/DemoController.php"
+    type:     annotation
+
 _alazjj_demosimplebootstrap_bundle_modal:
     resource: "@AlazjjDemoSimpleBootstrapBundle/Controller/ModalController.php"
+    type:     annotation
+
+_alazjj_demosimplebootstrap_bundle_form:
+    resource: "@AlazjjDemoSimpleBootstrapBundle/Controller/FormController.php"
     type:     annotation
