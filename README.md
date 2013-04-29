@@ -105,7 +105,7 @@ Register the bundles in the kernel :
     {
         $bundles = array(
             // ...
-            new Alazjj\DemoSimpleBootstrapBundle\DemoAlazjjSimpleBootstrapBundle(),
+            new Alazjj\DemoSimpleBootstrapBundle\AlazjjDemoSimpleBootstrapBundle(),
             new Alazjj\SimpleBootstrapBundle\AlazjjSimpleBootstrapBundle(),
         );
     }
